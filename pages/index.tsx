@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { sendMail } from "../services/sendMail";
 
 const Home: NextPage = () => {
   const buttonWrapperStyle = {
@@ -11,11 +12,15 @@ const Home: NextPage = () => {
     margin: '0 auto',
     borderRadius: '3px'
   }
+
   return (
-    <div style={buttonWrapperStyle}>
-      <input type="text" value="https://craftcode.design/" />
-      <button>Send</button>
-    </div>
+    <form style={buttonWrapperStyle} onSubmit={sendMail}>
+      <input id="name" name="name" type="text" required />
+      <input id="subject" name="subject" type="text" required />
+      <input id="email" name="email" type="text" required />
+      <input id="msg" name="message" type="text" required />
+      <button type='submit'>Send</button>
+    </form>
   );
 }
 
