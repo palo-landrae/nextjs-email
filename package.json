@@ -2,13 +2,16 @@
   "name": "nextjs-email",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "staging": "NODE_ENV=staging next",
+    "start": "NODE_ENV=production nodeserver.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
